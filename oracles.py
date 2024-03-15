@@ -93,11 +93,6 @@ class LogRegL2Oracle(BaseSmoothOracle):
     def grad(self, x):
         # TODO_: Implement
         return self.regcoef * x - self.matvec_ATx(self.b * (scipy.special.expit(-self.b * self.matvec_Ax(x)))) / self.b.size
-        #m = len(self.b)
-        #residuals = scipy.special.expit(self.matvec_Ax(x)) - (self.b + 1) / 2  # shape = (m, )
-        #reg_term = self.regcoef * x
-
-        #return (self.matvec_ATx(residuals) / m) + reg_term
 
     def hess(self, x):
         # TODO_: Implement
